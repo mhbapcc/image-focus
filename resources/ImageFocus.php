@@ -22,6 +22,24 @@ class ImageFocus
     {
         add_action('admin_init', [$this, 'loadTextDomain']);
         add_action('admin_init', [$this, 'loadClasses']);
+        add_action('wp_enqueue_media', [$this, 'mediaModalHotfix']);
+    }
+
+    /**
+     * Hotfix for newer WordPress versions.
+     *
+     * Ensures the attachment details view outputs a data-id attribute.
+     */
+    public function mediaModalHotfix()
+    {
+        if (!is_admin()) {
+            return;
+        }
+
+        wp_add_inline_script(
+            'media-views',
+            'wp.media.view.Attachment.Details=wp.media.view.Attachment.Details.extend({attributes:function(){return{"data-id":this.model.get("id")}}});'
+        );
     }
 
     /**

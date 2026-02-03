@@ -19,3 +19,15 @@ msgstr ""
 #: resources/FocusPoint.php:41
 msgid "Crop image"
 msgstr "Afbeelding bijsnijden"
+
+#: resources/FocusPoint.php:42
+msgid "Cropping..."
+msgstr "Bezig met bijsnijden..."
+
+#: resources/FocusPoint.php:43
+msgid "Done"
+msgstr "Klaar"
+
+#: resources/FocusPoint.php:44
+msgid "Please try again"
+msgstr "Probeer het opnieuw"

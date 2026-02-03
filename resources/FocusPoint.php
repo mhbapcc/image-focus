@@ -44,9 +44,22 @@ class FocusPoint
      */
     private function focusPointL10n()
     {
-        return [
-            'cropButton' => __('Set focuspoint', IMAGEFOCUS_TEXTDOMAIN),
+        $locale = function_exists('determine_locale') ? determine_locale() : get_locale();
+
+        $l10n = [
+            'cropButton' => __('Crop image', IMAGEFOCUS_TEXTDOMAIN),
+            'cropping' => __('Cropping...', IMAGEFOCUS_TEXTDOMAIN),
+            'done' => __('Done', IMAGEFOCUS_TEXTDOMAIN),
+            'tryAgain' => __('Please try again', IMAGEFOCUS_TEXTDOMAIN),
         ];
+
+        /**
+         * Filter the localization strings used by the focuspoint UI.
+         *
+         * @param array $l10n   Localization strings.
+         * @param string    $locale Current locale.
+         */
+        return apply_filters('image_focus_focuspoint_l10n', $l10n, $locale);
     }
 
     /**
