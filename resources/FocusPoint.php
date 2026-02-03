@@ -47,8 +47,8 @@ class FocusPoint
         $locale = function_exists('determine_locale') ? determine_locale() : get_locale();
 
         $l10n = [
-            'cropButton' => __('Crop image', IMAGEFOCUS_TEXTDOMAIN),
-            'cropping' => __('Cropping...', IMAGEFOCUS_TEXTDOMAIN),
+            'cropButton' => __('Set focuspoint', IMAGEFOCUS_TEXTDOMAIN),
+            'cropping' => __('Setting...', IMAGEFOCUS_TEXTDOMAIN),
             'done' => __('Done', IMAGEFOCUS_TEXTDOMAIN),
             'tryAgain' => __('Please try again', IMAGEFOCUS_TEXTDOMAIN),
         ];

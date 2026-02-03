@@ -470,7 +470,7 @@
 						return false;
 					}
 
-					base.cropButton.$el.text('Cropping...');
+					base.cropButton.$el.text('Setting...');
 					base.cropButton.disable();
 					base.cropButton._ajaxState = true;
 				}

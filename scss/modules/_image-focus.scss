@@ -1,25 +1,10 @@
-.attachment-media-view {
-			.image-focus {
-				margin-bottom: 16px;
-			}
-
-			.attachment-actions {
-				>button {
-					margin-right: 4px;
-					margin-left: 4px;
-				}
-			}
-		}
-
-
-
 .image-focus {
 	display: block;
 	margin-bottom: 16px;
 	user-select: none;
 	text-align: center;
 
-	.attachment-actions >button {
+	.attachment-actions > button {
 		margin-right: 4px;
 		margin-left: 4px;
 	}
