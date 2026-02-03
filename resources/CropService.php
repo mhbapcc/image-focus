@@ -82,17 +82,33 @@ class CropService
      */
     private function getAttachment($attachmentId)
     {
-        $attachment = wp_get_attachment_image_src($attachmentId, 'full');
-
-        $this->attachment = [
-            'id'     => $attachmentId,
-            'src'    => (string)$attachment[0],
-            'width'  => (int)$attachment[1],
-            'height' => (int)$attachment[2],
-            'ratio'  => (float)$attachment[1] / $attachment[2]
-        ];
-
-        return $this;
+    	$attachment = wp_get_attachment_image_src($attachmentId, 'full');
+    
+    	if (!$attachment || !is_array($attachment)) {
+    		$this->attachment = [
+    			'id'	=> (int) $attachmentId,
+    			'src'	=> '',
+    			'width'	=> 0,
+    			'height'	=> 0,
+    			'ratio'	=> 0.0
+    		];
+    
+    		return $this;
+    	}
+    
+    	$src = isset($attachment[0]) ? (string) $attachment[0] : '';
+    	$width = isset($attachment[1]) ? (int) $attachment[1] : 0;
+    	$height = isset($attachment[2]) ? (int) $attachment[2] : 0;
+    
+    	$this->attachment = [
+    		'id'	=> (int) $attachmentId,
+    		'src'	=> $src,
+    		'width'	=> $width,
+    		'height'	=> $height,
+    		'ratio'	=> ($height > 0) ? ((float) $width / $height) : 0.0
+    	];
+    
+    	return $this;
     }
 
     /**
@@ -123,21 +139,13 @@ class CropService
      */
     private function cropAttachment()
     {
-        // Loop trough all the image sizes connected to this attachment
-        foreach ($this->imageSizes as $imageSize) {
-
-            // Stop this iteration if the attachment is too small to be cropped for this image size
-            if ($imageSize['width'] > $this->attachment['width'] || $imageSize['height'] > $this->attachment['height']) {
-                continue;
-            }
-
-            // Get the file path of the attachment and the delete the old image
-            $imageFilePath = $this->getImageFilePath($imageSize);
-            $this->removeOldImage($imageFilePath);
-
-            // Now execute the actual image crop
-            $this->cropImage($imageSize, $imageFilePath);
-        }
+    	if (empty($this->attachment['width']) || empty($this->attachment['height'])) {
+    		return;
+    	}
+    
+    	foreach ($this->imageSizes as $imageSize) {
+    		// ...
+    	}
     }
 
     /**
