@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 // Define multiple necessary constants
 define('IMAGEFOCUS_VERSION', '0.9.2');
 define('IMAGEFOCUS_TEXTDOMAIN', 'image-focus');
-define('IMAGEFOCUS_LANGUAGES', dirname(plugin_basename(__FILE__)) . '/languages/');
+define('IMAGEFOCUS_LANGUAGES', dirname(plugin_basename(__FILE__)) . '/languages');
 
 define('IMAGEFOCUS_ASSETS', plugin_dir_url(__FILE__));
 define('IMAGEFOCUS_RESOURCES', __DIR__ . '/resources/');

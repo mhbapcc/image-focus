@@ -20,7 +20,7 @@ class ImageFocus
      */
     private function addHooks()
     {
-        add_action('admin_init', [$this, 'loadTextDomain']);
+        add_action('plugins_loaded', [$this, 'loadTextDomain']);
         add_action('admin_init', [$this, 'loadClasses']);
         add_action('wp_enqueue_media', [$this, 'mediaModalHotfix']);
     }
