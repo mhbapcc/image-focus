@@ -23,14 +23,6 @@ define('IMAGEFOCUS_LANGUAGES', dirname(plugin_basename(__FILE__)) . '/languages/
 define('IMAGEFOCUS_ASSETS', plugin_dir_url(__FILE__));
 define('IMAGEFOCUS_RESOURCES', __DIR__ . '/resources/');
 
-add_action('plugins_loaded', function() {
-    load_plugin_textdomain(
-        IMAGEFOCUS_TEXTDOMAIN, 
-        false, 
-        IMAGEFOCUS_LANGUAGES
-    );
-});
-
 // Use composer to autoload our classes
 require_once __DIR__ . '/vendor/autoload.php';
 
