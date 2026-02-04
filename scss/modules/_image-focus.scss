@@ -4,9 +4,14 @@
 	user-select: none;
 	text-align: center;
 
-	.attachment-actions > button {
+	+.attachment-actions > button {
 		margin-right: 4px;
 		margin-left: 4px;
+
+		&.button-disabled {
+			pointer-events: none;
+			user-select: none;
+		}
 	}
 
 	/* ELEMENTS */
