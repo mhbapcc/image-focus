@@ -107,6 +107,10 @@
 	}
 }
 
+.edit-attachment-frame .attachment-media-view .thumbnail:has(.image-focus) {
+	overflow: auto;
+}
+
 /* OVERWRITE WORDPRESS STYLING */
 .edit-attachment-frame .attachment-media-view .details-image.image-focus__img {
 	margin-bottom: 0;
